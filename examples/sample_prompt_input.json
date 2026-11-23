@@ -1,0 +1,9 @@
+{
+  "referenceId": "replace-with-reference-id",
+  "tool": "cursor",
+  "scope": "complete_application",
+  "framework": "react_typescript",
+  "fidelity": "close_recreation",
+  "animationIntensity": "balanced",
+  "additionalInstructions": "Use accessible interactions, responsive layouts and reduced-motion support."
+}

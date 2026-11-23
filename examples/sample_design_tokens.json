@@ -1,0 +1,34 @@
+{
+  "metadata": {
+    "name": "Example dark neon palette",
+    "status": "illustrative_not_extracted",
+    "provenance": "sample"
+  },
+  "colors": {
+    "background": "#101522",
+    "surface": "#1B263A",
+    "text": "#F4F1FF",
+    "mutedText": "#AEB8CC",
+    "primary": "#7867FF",
+    "accent": "#FF6B72",
+    "cyan": "#39D8E8"
+  },
+  "gradients": [
+    {
+      "name": "Violet to cyan",
+      "css": "linear-gradient(110deg, #7867FF 0%, #39D8E8 100%)"
+    }
+  ],
+  "typography": {
+    "display": "Illustrative sans-serif display style",
+    "body": "Readable sans-serif",
+    "code": "Monospace"
+  },
+  "radii": {
+    "card": "16px",
+    "button": "10px"
+  },
+  "spacing": {
+    "unit": "4px"
+  }
+}
