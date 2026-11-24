@@ -8,15 +8,15 @@ import {
   ArrowRight,
   Video,
 } from "lucide-react";
-import { GalleryGrid } from "@/components/discovery/gallery-grid";
 import { Button } from "@/components/ui/button";
 import { DEMO_APPS } from "@/features/demos/demo-apps";
 import { DemoCard } from "@/features/demos/components/demo-card";
+import { NavigationShowcase } from "@/features/navigation/components/navigation-showcase";
 
 export default function HomePage() {
   return (
     <div className="space-y-12">
-      {/* Editorial Hero Section */}
+      {/* Editorial Hero Section (Image 1 preserved) */}
       <section className="relative pt-4 pb-2 sm:pt-8 sm:pb-4 text-center max-w-4xl mx-auto">
         <div className="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full text-xs font-medium bg-brand-surface/90 text-brand-pearl border border-brand-border mb-5 shadow-sm">
           <Sparkles className="w-3.5 h-3.5 text-brand-coral" />
@@ -68,7 +68,7 @@ export default function HomePage() {
         </div>
       </section>
 
-      {/* Live Video Demo Reel Section */}
+      {/* Live Video Demo Reel Section (Image 1 preserved) */}
       <section className="space-y-5">
         <div className="flex flex-col sm:flex-row sm:items-end justify-between gap-2 pb-2 border-b border-brand-border/80">
           <div>
@@ -98,18 +98,8 @@ export default function HomePage() {
         </div>
       </section>
 
-      {/* Full Curated Design References Gallery */}
-      <section className="space-y-4 pt-4 border-t border-brand-border/70">
-        <div>
-          <h2 className="text-lg sm:text-xl font-bold text-brand-pearl tracking-tight">
-            Curated App Design Reference Library
-          </h2>
-          <p className="text-xs text-brand-muted mt-0.5">
-            Explore 12 visual architectures across iOS, Android, Web, and Desktop with WCAG contrast tokens and screen flow graphs.
-          </p>
-        </div>
-        <GalleryGrid />
-      </section>
+      {/* Interactive 12-Style Navigation & Motion Showcase (Replaces Image 3 static cards!) */}
+      <NavigationShowcase />
     </div>
   );
 }
