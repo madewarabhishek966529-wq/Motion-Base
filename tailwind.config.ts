@@ -23,6 +23,20 @@ const config: Config = {
           violet: "#7867FF", // Violet
           cyan: "#39D8E8", // Cyan Accent
         },
+        linear: {
+          indigo: "#5E6AD2",
+          bg: "#08090C",
+          surface: "#14151B",
+          surfaceHover: "#1C1E26",
+          border: "#242632",
+          borderLight: "#313545",
+          text: "#EEEEF0",
+          muted: "#8A8F98",
+          urgent: "#EB5757",
+          high: "#F2994A",
+          medium: "#F2C94C",
+          low: "#5E6AD2",
+        },
       },
       fontFamily: {
         sans: [
