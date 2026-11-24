@@ -17,6 +17,7 @@ import {
   GitBranch,
   ArrowLeft,
   Share2,
+  Smartphone,
 } from "lucide-react";
 import { ReferenceItem } from "@/types";
 import { getReferenceBySlug, getRelatedReferences } from "@/lib/api";
@@ -205,6 +206,15 @@ export default function ReferenceDetailPage() {
             <Heart className="w-4 h-4" fill={isLiked ? "currentColor" : "none"} />
             <span>{likesCount}</span>
           </button>
+
+          {reference.slug === "linear-mobile" && (
+            <Link href="/recreations/linear-mobile">
+              <Button variant="primary" size="md" className="gap-2 shadow-lg shadow-brand-violet/20 bg-linear-indigo hover:bg-[#6E7BF0] border-linear-indigo/30">
+                <Smartphone className="w-4 h-4" />
+                <span>Launch Interactive App</span>
+              </Button>
+            </Link>
+          )}
 
           <Link href={`/prompt-studio?referenceId=${reference.id}`}>
             <Button variant="coral" size="md" className="gap-2 shadow-lg shadow-brand-coral/20">
