@@ -1,0 +1,19 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 750" width="1200" height="750" fill="none">
+  <rect width="1200" height="750" fill="#121422"/>
+  <rect x="405" y="45" width="390" height="660" rx="44" fill="#181B2C" stroke="#7867FF" stroke-opacity="0.4" stroke-width="5"/>
+  <rect x="548" y="65" width="104" height="24" rx="12" fill="#0B0C14"/>
+  <text x="440" y="130" fill="#FFFFFF" font-family="Inter, sans-serif" font-size="18" font-weight="700">Pinned Bento Grid</text>
+  <rect x="440" y="156" width="154" height="140" rx="18" fill="#232840" stroke="#39D8E8" stroke-opacity="0.35"/>
+  <text x="460" y="255" fill="#FFFFFF" font-family="Inter, sans-serif" font-size="13" font-weight="600">Vercel Deploy</text>
+  <text x="460" y="274" fill="#39D8E8" font-family="monospace" font-size="10">Ready • 12s</text>
+  <rect x="610" y="156" width="154" height="140" rx="18" fill="#232840" stroke="#FF6B72" stroke-opacity="0.35"/>
+  <text x="630" y="255" fill="#FFFFFF" font-family="Inter, sans-serif" font-size="13" font-weight="600">Linear Cycle</text>
+  <text x="630" y="274" fill="#FF6B72" font-family="monospace" font-size="10">67% Complete</text>
+  <rect x="440" y="314" width="324" height="160" rx="18" fill="#232840" stroke="#FFFFFF" stroke-opacity="0.15"/>
+  <text x="464" y="352" fill="#AEB8CC" font-family="Inter, sans-serif" font-size="12" font-weight="600">READER MODE ARTICLE</text>
+  <text x="464" y="382" fill="#FFFFFF" font-family="Inter, sans-serif" font-size="16" font-weight="700">Fluid Spatial Interfaces</text>
+  <rect x="464" y="404" width="260" height="10" rx="5" fill="#FFFFFF" fill-opacity="0.14"/>
+  <rect x="464" y="424" width="220" height="10" rx="5" fill="#FFFFFF" fill-opacity="0.10"/>
+  <rect x="440" y="494" width="324" height="90" rx="18" fill="#232840" stroke="#FFFFFF" stroke-opacity="0.15"/>
+  <text x="464" y="544" fill="#FFFFFF" font-family="Inter, sans-serif" font-size="13" font-weight="600">+ Add Tab to Space</text>
+</svg>

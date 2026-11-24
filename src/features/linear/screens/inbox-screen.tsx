@@ -34,6 +34,12 @@ export const InboxScreen: React.FC<InboxScreenProps> = ({
 }) => {
   const [activeTab, setActiveTab] = useState<"assigned" | "created" | "subscribed">("assigned");
   const [searchQuery, setSearchQuery] = useState("");
+  const [showNotifications, setShowNotifications] = useState(false);
+
+  const createdCount = issues.filter((i) => i.creator.id === "usr-1").length;
+  const subscribedCount = issues.filter(
+    (i) => i.labels.includes("p0") || i.labels.includes("security")
+  ).length;
 
   // Filter issues
   const filteredIssues = issues.filter((issue) => {
@@ -42,9 +48,9 @@ export const InboxScreen: React.FC<InboxScreenProps> = ({
       issue.identifier.toLowerCase().includes(searchQuery.toLowerCase());
 
     if (!matchesSearch) return false;
-    if (activeTab === "created") return issue.creator.id === "usr-1"; // Alex
+    if (activeTab === "created") return issue.creator.id === "usr-1";
     if (activeTab === "subscribed") return issue.labels.includes("p0") || issue.labels.includes("security");
-    return true; // assigned
+    return true;
   });
 
   // Group by priority
@@ -81,9 +87,37 @@ export const InboxScreen: React.FC<InboxScreenProps> = ({
               <TrendingUp className="w-3.5 h-3.5" />
               <span>Cycle 42</span>
             </button>
-            <div className="relative p-1.5 rounded-lg text-linear-muted hover:text-linear-text cursor-pointer">
-              <Bell className="w-4 h-4" />
-              <span className="absolute top-1 right-1 w-2 h-2 rounded-full bg-linear-indigo" />
+            <div className="relative">
+              <button
+                type="button"
+                onClick={() => setShowNotifications(!showNotifications)}
+                className="relative p-1.5 rounded-lg text-linear-muted hover:text-linear-text cursor-pointer"
+                aria-label="Toggle notifications"
+              >
+                <Bell className="w-4 h-4" />
+                <span className="absolute top-1 right-1 w-2 h-2 rounded-full bg-linear-indigo" />
+              </button>
+
+              {showNotifications && (
+                <div className="absolute right-0 top-full mt-2 w-60 rounded-xl bg-linear-surface border border-linear-border shadow-2xl p-3 z-40 text-xs space-y-2">
+                  <div className="flex items-center justify-between border-b border-linear-border pb-1.5">
+                    <span className="font-semibold text-linear-text">Notifications</span>
+                    <button
+                      type="button"
+                      onClick={() => setShowNotifications(false)}
+                      className="text-[10px] text-linear-indigo hover:underline"
+                    >
+                      Close
+                    </button>
+                  </div>
+                  <p className="text-[11px] text-linear-muted leading-snug">
+                    <strong className="text-linear-text">Elena</strong> commented on ENG-402: &ldquo;Make sure this integrates cleanly...&rdquo;
+                  </p>
+                  <p className="text-[11px] text-linear-muted leading-snug">
+                    <strong className="text-linear-text">Cycle 42</strong> is 67% complete with 4 days remaining.
+                  </p>
+                </div>
+              )}
             </div>
           </div>
         </div>
@@ -103,8 +137,8 @@ export const InboxScreen: React.FC<InboxScreenProps> = ({
         <div className="flex items-center gap-1 overflow-x-auto scrollbar-none pt-1">
           {[
             { id: "assigned", label: "Assigned to me", count: issues.length },
-            { id: "created", label: "Created by me", count: 2 },
-            { id: "subscribed", label: "Subscribed", count: 3 },
+            { id: "created", label: "Created by me", count: createdCount },
+            { id: "subscribed", label: "Subscribed", count: subscribedCount },
           ].map((tab) => {
             const isSelected = activeTab === tab.id;
             return (

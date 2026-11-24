@@ -1,0 +1,36 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 750" width="1200" height="750" fill="none">
+  <rect width="1200" height="750" fill="#0B0D14"/>
+  <rect x="405" y="45" width="390" height="660" rx="44" fill="#08090C" stroke="#242632" stroke-width="6"/>
+  <rect x="548" y="63" width="104" height="24" rx="12" fill="#14151B"/>
+  <text x="435" y="128" fill="#EEEEF0" font-family="Inter, sans-serif" font-size="17" font-weight="700">Cycle 42</text>
+  <rect x="515" y="112" width="52" height="20" rx="5" fill="#5E6AD2" fill-opacity="0.2" stroke="#5E6AD2" stroke-opacity="0.4"/>
+  <text x="541" y="125" fill="#8793FA" font-family="monospace" font-size="10" text-anchor="middle">ACTIVE</text>
+  <rect x="678" y="110" width="88" height="24" rx="7" fill="#14151B" stroke="#242632"/>
+  <text x="722" y="126" fill="#8A8F98" font-family="monospace" font-size="10" text-anchor="middle">4 days left</text>
+  <!-- Burndown card -->
+  <rect x="435" y="156" width="330" height="240" rx="14" fill="#14151B" stroke="#242632"/>
+  <text x="455" y="182" fill="#8A8F98" font-family="Inter, sans-serif" font-size="10" font-weight="700">CYCLE BURNDOWN</text>
+  <text x="745" y="182" fill="#34D399" font-family="monospace" font-size="11" text-anchor="end">94.2% Velocity</text>
+  <!-- Grid & Curve -->
+  <line x1="455" y1="220" x2="745" y2="335" stroke="#4B4E58" stroke-width="1.5" stroke-dasharray="5 5"/>
+  <path d="M455 220 L503 234 L551 255 L599 282 L647 302 L695 322 L745 338 L745 350 L455 350 Z" fill="#5E6AD2" fill-opacity="0.2"/>
+  <path d="M455 220 L503 234 L551 255 L599 282 L647 302 L695 322 L745 338" stroke="#5E6AD2" stroke-width="3" stroke-linecap="round"/>
+  <circle cx="745" cy="338" r="6" fill="#FFFFFF" stroke="#5E6AD2" stroke-width="3"/>
+  <rect x="455" y="358" width="290" height="24" rx="6" fill="#08090C" stroke="#242632"/>
+  <text x="468" y="374" fill="#8793FA" font-family="monospace" font-size="10">16 pts remaining • +32 completed</text>
+  <!-- Scope Bar -->
+  <rect x="435" y="414" width="330" height="122" rx="14" fill="#14151B" stroke="#242632"/>
+  <text x="455" y="440" fill="#EEEEF0" font-family="Inter, sans-serif" font-size="12" font-weight="600">Scope Completion: 67%</text>
+  <rect x="455" y="454" width="290" height="10" rx="5" fill="#08090C"/>
+  <rect x="455" y="454" width="194" height="10" rx="5" fill="#5E6AD2"/>
+  <rect x="652" y="454" width="58" height="10" fill="#F2C94C"/>
+  <rect x="455" y="480" width="90" height="40" rx="8" fill="#08090C" stroke="#242632"/>
+  <text x="500" y="497" fill="#8A8F98" font-family="Inter, sans-serif" font-size="9" text-anchor="middle">DONE</text>
+  <text x="500" y="512" fill="#8793FA" font-family="monospace" font-size="12" font-weight="700" text-anchor="middle">32 pts</text>
+  <rect x="555" y="480" width="90" height="40" rx="8" fill="#08090C" stroke="#242632"/>
+  <text x="600" y="497" fill="#8A8F98" font-family="Inter, sans-serif" font-size="9" text-anchor="middle">ACTIVE</text>
+  <text x="600" y="512" fill="#F2C94C" font-family="monospace" font-size="12" font-weight="700" text-anchor="middle">10 pts</text>
+  <rect x="655" y="480" width="90" height="40" rx="8" fill="#08090C" stroke="#242632"/>
+  <text x="700" y="497" fill="#8A8F98" font-family="Inter, sans-serif" font-size="9" text-anchor="middle">TODO</text>
+  <text x="700" y="512" fill="#EEEEF0" font-family="monospace" font-size="12" font-weight="700" text-anchor="middle">6 pts</text>
+</svg>

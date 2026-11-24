@@ -273,16 +273,140 @@ export default function ReferenceDetailPage() {
       {/* Tab Contents */}
       <div className="pt-2">
         {activeTab === "screens" && (
-          <ScreenGalleryViewer
-            screens={reference.screens || []}
-            title={reference.title}
-          />
+          <div className="grid grid-cols-1 lg:grid-cols-12 gap-6 items-start">
+            <div className="lg:col-span-8">
+              <ScreenGalleryViewer
+                screens={reference.screens || []}
+                title={reference.title}
+              />
+            </div>
+
+            {/* Compact Design Intelligence Summary Sidebar (per Reference Detail wireframe) */}
+            <aside className="lg:col-span-4 space-y-4">
+              {/* Quick Design DNA Card */}
+              <div className="p-4 rounded-2xl bg-brand-surface border border-brand-border space-y-3">
+                <div className="flex items-center justify-between">
+                  <h3 className="text-xs font-bold uppercase tracking-wider text-brand-pearl flex items-center gap-1.5">
+                    <Sparkles className="w-3.5 h-3.5 text-brand-coral" />
+                    Design DNA
+                  </h3>
+                  <button
+                    onClick={() => setActiveTab("dna")}
+                    className="text-[11px] text-brand-cyan hover:underline font-medium"
+                  >
+                    Inspect all ({reference.tokens?.length || 0}) →
+                  </button>
+                </div>
+
+                {/* Color Swatches Preview */}
+                <div className="space-y-2">
+                  {(reference.tokens || [])
+                    .filter((t) => t.tokenType === "color")
+                    .slice(0, 4)
+                    .map((tok) => (
+                      <div
+                        key={tok.id}
+                        className="flex items-center justify-between p-2 rounded-xl bg-brand-elevated/70 border border-brand-border/60 text-xs"
+                      >
+                        <div className="flex items-center gap-2 min-w-0">
+                          <span
+                            className="w-5 h-5 rounded-md border border-white/15 shrink-0"
+                            style={{ backgroundColor: tok.tokenValue.hex }}
+                          />
+                          <span className="font-mono text-brand-pearl truncate text-[11px]">
+                            {tok.tokenName}
+                          </span>
+                        </div>
+                        <span className="font-mono text-[11px] text-brand-muted uppercase shrink-0">
+                          {tok.tokenValue.hex}
+                        </span>
+                      </div>
+                    ))}
+                </div>
+              </div>
+
+              {/* Motion & Flow Quick Summary */}
+              <div className="p-4 rounded-2xl bg-brand-surface border border-brand-border space-y-3">
+                <div className="flex items-center justify-between">
+                  <h3 className="text-xs font-bold uppercase tracking-wider text-brand-pearl flex items-center gap-1.5">
+                    <PlayCircle className="w-3.5 h-3.5 text-brand-cyan" />
+                    Motion &amp; Flow
+                  </h3>
+                  <button
+                    onClick={() => setActiveTab("motion")}
+                    className="text-[11px] text-brand-cyan hover:underline font-medium"
+                  >
+                    Details →
+                  </button>
+                </div>
+
+                {(reference.animations || []).length > 0 ? (
+                  <div className="space-y-2">
+                    {reference.animations!.slice(0, 2).map((anim) => (
+                      <div
+                        key={anim.id}
+                        className="p-2.5 rounded-xl bg-brand-elevated/60 border border-brand-border/60 text-xs space-y-1"
+                      >
+                        <div className="flex items-center justify-between gap-2">
+                          <span className="font-semibold text-brand-pearl truncate">
+                            {anim.name}
+                          </span>
+                          <span className="text-[10px] font-mono text-brand-coral shrink-0">
+                            {anim.durationMs ? `${anim.durationMs}ms` : anim.triggerType}
+                          </span>
+                        </div>
+                        <p className="text-[11px] text-brand-muted line-clamp-1">
+                          {anim.description}
+                        </p>
+                      </div>
+                    ))}
+                  </div>
+                ) : (
+                  <p className="text-xs text-brand-muted">
+                    Standard transitions observed; inspect Screen Flow for pathways.
+                  </p>
+                )}
+
+                {(reference.flows || []).length > 0 && (
+                  <button
+                    onClick={() => setActiveTab("flow")}
+                    className="w-full py-2 px-3 rounded-xl bg-brand-elevated hover:bg-brand-border/60 border border-brand-border text-xs text-brand-pearl font-medium flex items-center justify-between transition-colors"
+                  >
+                    <span className="flex items-center gap-1.5">
+                      <GitBranch className="w-3.5 h-3.5 text-brand-violet" />
+                      View {reference.flows!.length} Screen Flow{" "}
+                      {reference.flows!.length === 1 ? "Path" : "Paths"}
+                    </span>
+                    <ChevronRight className="w-3.5 h-3.5 text-brand-muted" />
+                  </button>
+                )}
+              </div>
+
+              {/* Quick Prompt Studio Card */}
+              <div className="p-4 rounded-2xl bg-gradient-to-br from-brand-surface to-brand-elevated border border-brand-coral/30 space-y-2.5">
+                <h3 className="text-xs font-bold uppercase tracking-wider text-brand-pearl flex items-center gap-1.5">
+                  <Wand2 className="w-3.5 h-3.5 text-brand-coral" />
+                  Build This Reference
+                </h3>
+                <p className="text-xs text-brand-muted leading-relaxed">
+                  Generate tailored prompts for Antigravity, Cursor, Stitch, or Claude Code using verified tokens.
+                </p>
+                <Link href={`/prompt-studio?referenceId=${reference.id}`} className="block pt-1">
+                  <Button variant="coral" size="sm" className="w-full gap-1.5">
+                    <Wand2 className="w-3.5 h-3.5" />
+                    <span>Open in Prompt Studio</span>
+                  </Button>
+                </Link>
+              </div>
+            </aside>
+          </div>
         )}
 
         {activeTab === "dna" && (
           <DesignDnaSection
             tokens={reference.tokens || []}
             gradients={reference.gradients || []}
+            referenceId={reference.id}
           />
         )}
 

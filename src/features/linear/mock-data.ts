@@ -5,25 +5,25 @@ export const MOCK_USERS: Record<string, LinearUser> = {
     id: "usr-1",
     name: "Alex Rivera",
     handle: "arivera",
-    avatarUrl: "https://images.unsplash.com/photo-1534528741775-53994a69daeb?q=80&w=200&auto=format&fit=crop",
+    avatarUrl: "/avatars/alex.svg",
   },
   elena: {
     id: "usr-2",
     name: "Elena Rostova",
     handle: "erostova",
-    avatarUrl: "https://images.unsplash.com/photo-1517841905240-472988babdf9?q=80&w=200&auto=format&fit=crop",
+    avatarUrl: "/avatars/elena.svg",
   },
   marcus: {
     id: "usr-3",
     name: "Marcus Chen",
     handle: "mchen",
-    avatarUrl: "https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?q=80&w=200&auto=format&fit=crop",
+    avatarUrl: "/avatars/marcus.svg",
   },
   sarah: {
     id: "usr-4",
     name: "Sarah Jenkins",
     handle: "sjenkins",
-    avatarUrl: "https://images.unsplash.com/photo-1494790108377-be9c29b29330?q=80&w=200&auto=format&fit=crop",
+    avatarUrl: "/avatars/sarah.svg",
   },
 };
 

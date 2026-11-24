@@ -140,7 +140,7 @@ export default function ComponentsLabPage() {
             </div>
 
             {/* Interactive States Picker */}
-            <div className="flex items-center gap-1.5 self-start sm:self-auto">
+            <div className="flex flex-wrap items-center gap-1.5 self-start sm:self-auto">
               <span className="text-[11px] text-brand-muted font-mono mr-1">State:</span>
               {selectedComp.availableStates.map((st) => (
                 <button
@@ -160,13 +160,22 @@ export default function ComponentsLabPage() {
           </div>
 
           {/* Interactive Preview Canvas */}
-          <div className="bg-brand-bg border border-brand-border rounded-2xl p-8 sm:p-12 flex items-center justify-center min-h-[260px] overflow-hidden">
+          <div className="bg-brand-bg border border-brand-border rounded-2xl p-6 sm:p-10 flex flex-col items-center justify-center min-h-[280px] overflow-x-auto relative">
+            <div className="absolute inset-0 opacity-15 bg-[radial-gradient(#394B6E_1px,transparent_1px)] [background-size:16px_16px] pointer-events-none" />
             <div
               className={cn(
-                "w-full transition-all duration-300 flex items-center justify-center",
+                "relative w-full transition-all duration-300 flex flex-col items-center justify-center rounded-2xl border border-dashed p-6 sm:p-8",
+                viewportWidth === "desktop"
+                  ? "border-transparent"
+                  : "border-brand-border bg-brand-surface/30",
                 viewportWidths[viewportWidth]
               )}
             >
+              {viewportWidth !== "desktop" && (
+                <span className="absolute -top-2.5 left-4 px-2 py-0.5 rounded bg-brand-elevated border border-brand-border text-[10px] font-mono text-brand-cyan">
+                  {viewportWidth === "mobile" ? "360px Mobile" : "600px Tablet"}
+                </span>
+              )}
               {selectedComp.id === "comp-action-btn" && (
                 <Button
                   variant="primary"
@@ -237,13 +246,13 @@ export default function ComponentsLabPage() {
 
           {/* Code Generator & Snippets */}
           <div className="bg-brand-surface border border-brand-border rounded-2xl p-6 space-y-4">
-            <div className="flex items-center justify-between border-b border-brand-border pb-3">
-              <div className="flex items-center gap-2">
+            <div className="flex flex-wrap items-center justify-between gap-3 border-b border-brand-border pb-3">
+              <div className="flex flex-wrap items-center gap-2">
                 <Code className="w-4 h-4 text-brand-coral" />
                 <h4 className="text-sm font-semibold text-brand-pearl">
                   Component Code Implementation
                 </h4>
-                <div className="flex items-center gap-1 ml-3">
+                <div className="flex items-center gap-1">
                   <button
                     onClick={() => setSnippetLang("react")}
                     className={cn(

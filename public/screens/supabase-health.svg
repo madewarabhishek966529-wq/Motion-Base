@@ -1,0 +1,45 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 750" width="1200" height="750" fill="none">
+  <rect width="1200" height="750" fill="#111111"/>
+  <radialGradient id="supGlow" cx="50%" cy="25%" r="60%">
+    <stop offset="0%" stop-color="#3ECF8E" stop-opacity="0.16"/>
+    <stop offset="100%" stop-color="#111111" stop-opacity="0"/>
+  </radialGradient>
+  <rect width="1200" height="750" fill="url(#supGlow)"/>
+  <!-- Phone + Tablet Preview -->
+  <rect x="405" y="45" width="390" height="660" rx="44" fill="#161616" stroke="#2B2B2B" stroke-width="6"/>
+  <rect x="548" y="63" width="104" height="24" rx="12" fill="#0A0A0A"/>
+  <!-- Header -->
+  <circle cx="448" cy="122" r="12" fill="#3ECF8E" fill-opacity="0.2" stroke="#3ECF8E"/>
+  <text x="470" y="127" fill="#FAFAFA" font-family="Inter, sans-serif" font-size="15" font-weight="700">motionbase-prod</text>
+  <rect x="678" y="109" width="88" height="26" rx="13" fill="#3ECF8E" fill-opacity="0.15" stroke="#3ECF8E" stroke-opacity="0.4"/>
+  <circle cx="693" cy="122" r="4" fill="#3ECF8E"/>
+  <text x="703" y="126" fill="#3ECF8E" font-family="monospace" font-size="10" font-weight="700">18ms OK</text>
+  <!-- Telemetry Cards -->
+  <rect x="435" y="160" width="160" height="92" rx="12" fill="#1C1C1C" stroke="#2B2B2B"/>
+  <text x="451" y="184" fill="#8E8E93" font-family="Inter, sans-serif" font-size="11">DB CONNECTIONS</text>
+  <text x="451" y="218" fill="#FAFAFA" font-family="monospace" font-size="24" font-weight="700">42 / 100</text>
+  <text x="451" y="238" fill="#3ECF8E" font-family="monospace" font-size="10">Realtime Healthy</text>
+  <rect x="605" y="160" width="160" height="92" rx="12" fill="#1C1C1C" stroke="#2B2B2B"/>
+  <text x="621" y="184" fill="#8E8E93" font-family="Inter, sans-serif" font-size="11">AUTH REQUESTS</text>
+  <text x="621" y="218" fill="#FAFAFA" font-family="monospace" font-size="24" font-weight="700">12.4k</text>
+  <text x="621" y="238" fill="#3ECF8E" font-family="monospace" font-size="10">+14% today</text>
+  <!-- Chart Card -->
+  <rect x="435" y="268" width="330" height="200" rx="14" fill="#1C1C1C" stroke="#2B2B2B"/>
+  <text x="453" y="294" fill="#FAFAFA" font-family="Inter, sans-serif" font-size="13" font-weight="600">Postgres Query Throughput</text>
+  <!-- Bar chart -->
+  <rect x="455" y="395" width="22" height="50" rx="4" fill="#2A2A2A"/>
+  <rect x="490" y="365" width="22" height="80" rx="4" fill="#2A2A2A"/>
+  <rect x="525" y="340" width="22" height="105" rx="4" fill="#3ECF8E" fill-opacity="0.7"/>
+  <rect x="560" y="375" width="22" height="70" rx="4" fill="#2A2A2A"/>
+  <rect x="595" y="325" width="22" height="120" rx="4" fill="#3ECF8E"/>
+  <rect x="630" y="355" width="22" height="90" rx="4" fill="#3ECF8E" fill-opacity="0.8"/>
+  <rect x="665" y="330" width="22" height="115" rx="4" fill="#3ECF8E"/>
+  <rect x="700" y="315" width="22" height="130" rx="4" fill="#3ECF8E"/>
+  <!-- Quick Table List -->
+  <rect x="435" y="486" width="330" height="56" rx="10" fill="#1C1C1C" stroke="#2B2B2B"/>
+  <text x="453" y="518" fill="#FAFAFA" font-family="monospace" font-size="12">public.applications</text>
+  <text x="747" y="518" fill="#8E8E93" font-family="monospace" font-size="11" text-anchor="end">108 rows →</text>
+  <rect x="435" y="554" width="330" height="56" rx="10" fill="#1C1C1C" stroke="#2B2B2B"/>
+  <text x="453" y="586" fill="#FAFAFA" font-family="monospace" font-size="12">public.design_tokens</text>
+  <text x="747" y="586" fill="#8E8E93" font-family="monospace" font-size="11" text-anchor="end">642 rows →</text>
+</svg>

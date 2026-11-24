@@ -370,9 +370,9 @@ function PromptStudioContent() {
         </div>
 
         {/* Right Column: Prompt Output & Live IR Inspector */}
-        <div className="lg:col-span-7 space-y-4 flex flex-col">
+        <div className="lg:col-span-7 space-y-4 flex flex-col lg:sticky lg:top-24 lg:self-start">
           {/* View Mode Switcher */}
-          <div className="flex items-center justify-between border-b border-brand-border pb-2">
+          <div className="flex flex-wrap items-center justify-between gap-2 border-b border-brand-border pb-2">
             <div className="flex items-center gap-2">
               <button
                 onClick={() => setActiveViewTab("prompt")}
@@ -399,10 +399,38 @@ function PromptStudioContent() {
               </button>
             </div>
 
-            <div className="flex items-center gap-2 text-xs font-mono text-brand-muted">
+            <div className="flex items-center gap-2.5 text-xs font-mono text-brand-muted">
               <span>{generatedPrompt.split("\n").length} lines</span>
               <span>•</span>
               <span>{generatedPrompt.length} chars</span>
+              {currentRef && (
+                <button
+                  type="button"
+                  onClick={() =>
+                    setGeneratedPrompt(
+                      generateImplementationPrompt(
+                        {
+                          referenceId: currentRef.id,
+                          tool,
+                          scope,
+                          framework,
+                          fidelity,
+                          animationIntensity: intensity,
+                          includeAccessibility,
+                          includeAssumptions,
+                          additionalInstructions,
+                        },
+                        currentRef
+                      )
+                    )
+                  }
+                  className="p-1.5 rounded-lg bg-brand-elevated hover:bg-brand-border text-brand-muted hover:text-brand-pearl transition-colors"
+                  title="Reset manual edits to compiled prompt"
+                  aria-label="Reset manual edits"
+                >
+                  <RotateCcw className="w-3.5 h-3.5" />
+                </button>
+              )}
             </div>
           </div>
 
@@ -412,7 +440,7 @@ function PromptStudioContent() {
               <textarea
                 value={generatedPrompt}
                 onChange={(e) => setGeneratedPrompt(e.target.value)}
-                className="w-full flex-1 min-h-[580px] p-5 bg-brand-surface border border-brand-border rounded-2xl text-xs font-mono text-brand-pearl leading-relaxed resize-y focus:outline-none focus:border-brand-coral/60 selection:bg-brand-coral selection:text-brand-bg shadow-inner"
+                className="w-full flex-1 min-h-[520px] lg:max-h-[calc(100vh-14rem)] p-5 bg-brand-surface border border-brand-border rounded-2xl text-xs font-mono text-brand-pearl leading-relaxed resize-y focus:outline-none focus:border-brand-coral/60 selection:bg-brand-coral selection:text-brand-bg shadow-inner"
                 spellCheck={false}
               />
             </div>
@@ -420,7 +448,7 @@ function PromptStudioContent() {
 
           {activeViewTab === "ir" && (
             <div className="relative flex-1 flex flex-col">
-              <pre className="w-full flex-1 min-h-[580px] p-5 bg-brand-surface border border-brand-border rounded-2xl text-xs font-mono text-brand-pearl leading-relaxed overflow-x-auto shadow-inner">
+              <pre className="w-full flex-1 min-h-[520px] lg:max-h-[calc(100vh-14rem)] p-5 bg-brand-surface border border-brand-border rounded-2xl text-xs font-mono text-brand-pearl leading-relaxed overflow-auto shadow-inner">
                 <code>{JSON.stringify(promptIR, null, 2)}</code>
               </pre>
             </div>

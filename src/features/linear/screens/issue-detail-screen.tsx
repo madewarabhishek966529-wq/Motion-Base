@@ -38,6 +38,15 @@ export const IssueDetailScreen: React.FC<IssueDetailScreenProps> = ({
   const [commentText, setCommentText] = useState("");
   const [statusMenuOpen, setStatusMenuOpen] = useState(false);
   const [priorityMenuOpen, setPriorityMenuOpen] = useState(false);
+  const [shareCopied, setShareCopied] = useState(false);
+
+  const handleShare = () => {
+    if (typeof navigator !== "undefined" && navigator.clipboard) {
+      navigator.clipboard.writeText(`https://linear.app/eng/issue/${issue.identifier}`);
+    }
+    setShareCopied(true);
+    setTimeout(() => setShareCopied(false), 1800);
+  };
 
   const handleStatusChange = (status: IssueStatus) => {
     onUpdateIssue({ ...issue, status, updatedAt: new Date().toISOString() });
@@ -111,10 +120,27 @@ export const IssueDetailScreen: React.FC<IssueDetailScreenProps> = ({
         </div>
 
         <div className="flex items-center gap-1.5 text-linear-muted">
-          <button className="p-1.5 rounded-lg hover:text-linear-text">
+          {shareCopied && (
+            <span className="text-[10px] font-mono text-emerald-400 bg-emerald-500/10 px-2 py-0.5 rounded border border-emerald-500/20">
+              Link copied
+            </span>
+          )}
+          <button
+            type="button"
+            onClick={handleShare}
+            className="p-1.5 rounded-lg hover:text-linear-text transition-colors"
+            title="Copy issue link"
+            aria-label="Copy issue link"
+          >
             <Share2 className="w-4 h-4" />
           </button>
-          <button className="p-1.5 rounded-lg hover:text-linear-text">
+          <button
+            type="button"
+            onClick={() => setShowCommentDrawer(true)}
+            className="p-1.5 rounded-lg hover:text-linear-text transition-colors"
+            title="Quick comment"
+            aria-label="Open quick comment drawer"
+          >
             <MoreHorizontal className="w-4 h-4" />
           </button>
         </div>
@@ -310,7 +336,7 @@ export const IssueDetailScreen: React.FC<IssueDetailScreenProps> = ({
         </button>
       </div>
 
-      {/* Spring Animated Bottom Drawer (320ms, cubic-bezier(0.16, 1, 0.3, 1)) */}
+      {/* Spring Animated Bottom Drawer contained inside viewport (320ms, cubic-bezier(0.16, 1, 0.3, 1)) */}
       <AnimatePresence>
         {showCommentDrawer && (
           <>
@@ -320,7 +346,7 @@ export const IssueDetailScreen: React.FC<IssueDetailScreenProps> = ({
               animate={{ opacity: 1 }}
               exit={{ opacity: 0 }}
               onClick={() => setShowCommentDrawer(false)}
-              className="fixed inset-0 bg-black/70 backdrop-blur-sm z-40"
+              className="absolute inset-0 bg-black/70 backdrop-blur-sm z-40"
             />
 
             {/* Damped Spring Drawer */}
@@ -346,7 +372,7 @@ export const IssueDetailScreen: React.FC<IssueDetailScreenProps> = ({
                       mass: 0.85,
                     }
               }
-              className="fixed bottom-0 inset-x-0 bg-linear-surface border-t border-linear-border rounded-t-3xl p-5 z-50 shadow-2xl max-w-lg mx-auto space-y-4"
+              className="absolute bottom-0 inset-x-0 bg-linear-surface border-t border-linear-border rounded-t-3xl p-5 z-50 shadow-2xl space-y-4"
             >
               <div className="w-12 h-1 bg-linear-borderLight rounded-full mx-auto" />
               <div className="flex items-center justify-between pb-1">

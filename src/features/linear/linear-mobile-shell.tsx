@@ -2,14 +2,13 @@
 
 import React, { useState } from "react";
 import { motion, AnimatePresence } from "framer-motion";
-import { LinearIssue } from "./types";
-import { MOCK_ISSUES, MOCK_CYCLE_42 } from "./mock-data";
+import { LinearIssue, IssuePriority } from "./types";
+import { MOCK_ISSUES, MOCK_CYCLE_42, MOCK_USERS } from "./mock-data";
 import { InboxScreen } from "./screens/inbox-screen";
 import { IssueDetailScreen } from "./screens/issue-detail-screen";
 import { CycleScreen } from "./screens/cycle-screen";
 import {
   Smartphone,
-  Maximize2,
   Minimize2,
   RotateCcw,
   Accessibility,
@@ -18,8 +17,7 @@ import {
   Layers,
   Inbox,
   TrendingUp,
-  Bell,
-  Sparkles,
+  Plus,
 } from "lucide-react";
 import { cn } from "@/lib/utils";
 
@@ -32,6 +30,11 @@ export const LinearMobileShell: React.FC = () => {
   const [isPhoneFrame, setIsPhoneFrame] = useState(true);
   const [reducedMotion, setReducedMotion] = useState(false);
 
+  // New Issue Spring Sheet State
+  const [showNewIssueDrawer, setShowNewIssueDrawer] = useState(false);
+  const [newTitle, setNewTitle] = useState("");
+  const [newPriority, setNewPriority] = useState<IssuePriority>("high");
+
   const selectedIssue = issues.find((i) => i.id === selectedIssueId) || issues[0];
 
   const handleOpenIssue = (issue: LinearIssue) => {
@@ -43,7 +46,12 @@ export const LinearMobileShell: React.FC = () => {
     setIssues((prev) =>
       prev.map((i) => {
         if (i.id !== issueId) return i;
-        const nextStatus = i.status === "done" ? "todo" : i.status === "todo" ? "in_progress" : "done";
+        const nextStatus =
+          i.status === "done"
+            ? "todo"
+            : i.status === "todo"
+            ? "in_progress"
+            : "done";
         return { ...i, status: nextStatus, updatedAt: new Date().toISOString() };
       })
     );
@@ -53,10 +61,43 @@ export const LinearMobileShell: React.FC = () => {
     setIssues((prev) => prev.map((i) => (i.id === updated.id ? updated : i)));
   };
 
+  const handleCreateIssue = (e: React.FormEvent) => {
+    e.preventDefault();
+    if (!newTitle.trim()) return;
+    const nextNumber = 412 + issues.length;
+    const created: LinearIssue = {
+      id: `iss-${Date.now()}`,
+      identifier: `ENG-${nextNumber}`,
+      title: newTitle.trim(),
+      description: "Created from Linear Mobile quick triage sheet.",
+      priority: newPriority,
+      status: "todo",
+      assignee: MOCK_USERS.alex,
+      creator: MOCK_USERS.alex,
+      cycle: { number: 42, name: "Cycle 42" },
+      labels: ["triage"],
+      createdAt: new Date().toISOString(),
+      updatedAt: new Date().toISOString(),
+      activity: [
+        {
+          id: `act-${Date.now()}`,
+          user: MOCK_USERS.alex,
+          action: "created issue via mobile FAB",
+          timestamp: "Just now",
+        },
+      ],
+      comments: [],
+    };
+    setIssues((prev) => [created, ...prev]);
+    setNewTitle("");
+    setShowNewIssueDrawer(false);
+  };
+
   const handleReset = () => {
     setIssues(MOCK_ISSUES);
     setActiveScreen("inbox");
     setSelectedIssueId("iss-1");
+    setShowNewIssueDrawer(false);
   };
 
   return (
@@ -74,7 +115,6 @@ export const LinearMobileShell: React.FC = () => {
         </div>
 
         <div className="flex items-center gap-2">
-          {/* Reduced Motion Toggle */}
           <button
             onClick={() => setReducedMotion(!reducedMotion)}
             className={cn(
@@ -89,7 +129,6 @@ export const LinearMobileShell: React.FC = () => {
             <span className="hidden sm:inline">Reduced Motion</span>
           </button>
 
-          {/* Frame Toggle */}
           <button
             onClick={() => setIsPhoneFrame(!isPhoneFrame)}
             className="flex items-center gap-1.5 px-2.5 py-1.5 rounded-lg bg-brand-elevated text-brand-muted border border-brand-border hover:text-brand-pearl transition-colors"
@@ -107,11 +146,11 @@ export const LinearMobileShell: React.FC = () => {
             )}
           </button>
 
-          {/* Reset */}
           <button
             onClick={handleReset}
             className="p-1.5 rounded-lg bg-brand-elevated text-brand-muted hover:text-brand-pearl border border-brand-border"
             title="Reset to initial state"
+            aria-label="Reset Linear Mobile state"
           >
             <RotateCcw className="w-3.5 h-3.5" />
           </button>
@@ -123,16 +162,15 @@ export const LinearMobileShell: React.FC = () => {
         className={cn(
           "relative overflow-hidden transition-all duration-300 shadow-2xl bg-linear-bg border-linear-border",
           isPhoneFrame
-            ? "w-[390px] h-[780px] rounded-[48px] border-[10px] border-[#20232B] shadow-black/80 ring-1 ring-white/10"
+            ? "w-full max-w-[390px] h-[760px] rounded-[48px] border-[10px] border-[#20232B] shadow-black/80 ring-1 ring-white/10"
             : "w-full max-w-2xl h-[700px] rounded-2xl border"
         )}
       >
-        {/* Authentic iPhone Dynamic Island & Status Bar (when in phone frame) */}
+        {/* Authentic iPhone Dynamic Island & Status Bar */}
         {isPhoneFrame && (
           <div className="absolute top-0 inset-x-0 h-11 bg-transparent z-40 flex items-center justify-between px-7 text-white text-[12px] font-semibold tracking-tight pointer-events-none">
             <span>9:41</span>
 
-            {/* Dynamic Island Capsule */}
             <div className="w-24 h-6 bg-black rounded-full shadow-inner flex items-center justify-end pr-2">
               <span className="w-2.5 h-2.5 rounded-full bg-[#111115] border border-white/10" />
             </div>
@@ -144,8 +182,8 @@ export const LinearMobileShell: React.FC = () => {
           </div>
         )}
 
-        {/* Screen Switcher Container with Spring Transitions */}
-        <div className={cn("h-full w-full flex flex-col", isPhoneFrame && "pt-10")}>
+        {/* Screen Switcher Container */}
+        <div className={cn("h-full w-full flex flex-col relative", isPhoneFrame && "pt-10")}>
           <div className="flex-1 relative overflow-hidden">
             <AnimatePresence mode="wait">
               {activeScreen === "inbox" && (
@@ -167,6 +205,7 @@ export const LinearMobileShell: React.FC = () => {
                     onOpenIssue={handleOpenIssue}
                     onStatusToggle={handleStatusToggle}
                     onNavigateToCycle={() => setActiveScreen("cycle")}
+                    onNewIssueClick={() => setShowNewIssueDrawer(true)}
                   />
                 </motion.div>
               )}
@@ -212,6 +251,83 @@ export const LinearMobileShell: React.FC = () => {
                     onBack={() => setActiveScreen("inbox")}
                   />
                 </motion.div>
+              )}
+            </AnimatePresence>
+
+            {/* New Issue Spring Bottom Sheet (contained inside phone viewport) */}
+            <AnimatePresence>
+              {showNewIssueDrawer && (
+                <>
+                  <motion.div
+                    initial={{ opacity: 0 }}
+                    animate={{ opacity: 1 }}
+                    exit={{ opacity: 0 }}
+                    onClick={() => setShowNewIssueDrawer(false)}
+                    className="absolute inset-0 bg-black/70 backdrop-blur-sm z-40"
+                  />
+                  <motion.div
+                    initial={reducedMotion ? { opacity: 0 } : { y: "100%", opacity: 0.8 }}
+                    animate={{ y: 0, opacity: 1 }}
+                    exit={reducedMotion ? { opacity: 0 } : { y: "100%", opacity: 0 }}
+                    transition={
+                      reducedMotion
+                        ? { duration: 0.15 }
+                        : { type: "spring", stiffness: 420, damping: 26, mass: 0.85 }
+                    }
+                    className="absolute bottom-0 inset-x-0 bg-linear-surface border-t border-linear-border rounded-t-3xl p-5 z-50 shadow-2xl space-y-4"
+                  >
+                    <div className="w-12 h-1 bg-linear-borderLight rounded-full mx-auto" />
+                    <div className="flex items-center justify-between">
+                      <span className="text-xs font-semibold text-linear-text">
+                        New Engineering Issue
+                      </span>
+                      <span className="text-[10px] font-mono text-linear-indigo">
+                        Cycle 42
+                      </span>
+                    </div>
+
+                    <form onSubmit={handleCreateIssue} className="space-y-3">
+                      <input
+                        autoFocus
+                        required
+                        value={newTitle}
+                        onChange={(e) => setNewTitle(e.target.value)}
+                        placeholder="Issue title (e.g. Fix spring drawer clipping)..."
+                        className="w-full bg-linear-bg border border-linear-border rounded-xl px-3.5 py-2.5 text-xs text-linear-text placeholder:text-linear-muted/60 focus:outline-none focus:border-linear-indigo"
+                      />
+
+                      <div className="flex items-center justify-between gap-2">
+                        <select
+                          value={newPriority}
+                          onChange={(e) => setNewPriority(e.target.value as IssuePriority)}
+                          className="bg-linear-bg border border-linear-border rounded-xl px-3 py-1.5 text-xs text-linear-text focus:outline-none"
+                        >
+                          <option value="urgent">Urgent Priority</option>
+                          <option value="high">High Priority</option>
+                          <option value="medium">Medium Priority</option>
+                          <option value="low">Low Priority</option>
+                        </select>
+
+                        <div className="flex items-center gap-2">
+                          <button
+                            type="button"
+                            onClick={() => setShowNewIssueDrawer(false)}
+                            className="px-3 py-1.5 rounded-lg text-xs text-linear-muted hover:text-linear-text"
+                          >
+                            Cancel
+                          </button>
+                          <button
+                            type="submit"
+                            className="flex items-center gap-1 px-4 py-1.5 rounded-xl bg-linear-indigo hover:bg-[#6E7BF0] text-white text-xs font-medium shadow-md shadow-linear-indigo/25"
+                          >
+                            <Plus className="w-3.5 h-3.5" />
+                            <span>Create</span>
+                          </button>
+                        </div>
+                      </div>
+                    </form>
+                  </motion.div>
+                </>
               )}
             </AnimatePresence>
           </div>
@@ -261,7 +377,7 @@ export const LinearMobileShell: React.FC = () => {
             </button>
           </div>
 
-          {/* iOS Bottom Home Bar (when in phone frame) */}
+          {/* iOS Bottom Home Bar */}
           {isPhoneFrame && (
             <div className="h-4 bg-linear-surface flex items-center justify-center pb-1">
               <div className="w-32 h-1 bg-white/30 rounded-full" />

@@ -104,7 +104,7 @@ export const FilterBar: React.FC<FilterBarProps> = ({
         </div>
 
         {/* Sort & Advanced Filters Toggle */}
-        <div className="flex items-center gap-2 self-end md:self-auto">
+        <div className="flex items-center justify-between sm:justify-end gap-2 w-full md:w-auto">
           <div className="flex items-center gap-1.5 bg-brand-surface border border-brand-border rounded-xl px-2.5 py-1.5 text-xs text-brand-muted">
             <ArrowUpDown className="w-3.5 h-3.5 text-brand-muted" />
             <select

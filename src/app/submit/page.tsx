@@ -80,10 +80,10 @@ export default function SubmitReferencePage() {
           screenOrder: 1,
           imageUrl:
             screenUrl ||
-            "https://images.unsplash.com/photo-1618005182384-a83a8bd57fbe?q=80&w=1200&auto=format&fit=crop",
+            "/screens/linear-inbox.svg",
           thumbnailUrl:
             screenUrl ||
-            "https://images.unsplash.com/photo-1618005182384-a83a8bd57fbe?q=80&w=600&auto=format&fit=crop",
+            "/screens/linear-inbox.svg",
           altText: screenAlt || `${title} preview screenshot`,
           createdAt: new Date().toISOString(),
         },

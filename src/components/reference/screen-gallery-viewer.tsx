@@ -54,23 +54,23 @@ export const ScreenGalleryViewer: React.FC<ScreenGalleryViewerProps> = ({
     <div className="space-y-4">
       {/* Main Viewport */}
       <div className="relative rounded-2xl overflow-hidden bg-brand-surface border border-brand-border group">
-        <div className="relative aspect-[16/10] sm:aspect-[16/9] w-full">
+        <div className="relative aspect-[16/10] w-full bg-[#0B0D14]">
           <Image
             src={activeScreen.imageUrl}
             alt={activeScreen.altText || `${title} screen ${activeIndex + 1}`}
             fill
             priority
-            sizes="(max-width: 1024px) 100vw, 80vw"
-            className="object-contain bg-black/40"
+            sizes="(max-width: 1024px) 100vw, 70vw"
+            className="object-contain"
           />
 
           {/* Fullscreen Inspect Button */}
           <button
             onClick={() => setLightboxOpen(true)}
-            className="absolute top-4 right-4 p-2.5 rounded-xl bg-black/60 hover:bg-black/90 text-brand-pearl backdrop-blur-md border border-white/10 transition-all opacity-0 group-hover:opacity-100 focus:opacity-100 active:scale-95 flex items-center gap-1.5 text-xs font-medium"
+            className="absolute top-3 right-3 px-2.5 py-2 rounded-xl bg-brand-bg/85 hover:bg-brand-elevated text-brand-pearl backdrop-blur-md border border-white/15 transition-all opacity-90 sm:opacity-0 sm:group-hover:opacity-100 focus:opacity-100 active:scale-95 flex items-center gap-1.5 text-xs font-medium shadow-md"
             aria-label="Inspect screen full size"
           >
-            <Maximize2 className="w-4 h-4" />
+            <Maximize2 className="w-3.5 h-3.5" />
             <span>Fullscreen</span>
           </button>
 

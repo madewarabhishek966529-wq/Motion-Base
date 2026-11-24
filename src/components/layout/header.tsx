@@ -14,6 +14,7 @@ import {
   Menu,
   X,
   Shield,
+  Smartphone,
 } from "lucide-react";
 import { Button } from "@/components/ui/button";
 
@@ -21,8 +22,8 @@ const navLinks = [
   { href: "/", label: "Discover", icon: Compass },
   { href: "/motion-lab", label: "Motion Lab", icon: PlayCircle },
   { href: "/components-lab", label: "Components", icon: Layers },
-  { href: "/prompt-studio", label: "Prompt Studio", icon: Wand2 },
   { href: "/collections", label: "Collections", icon: Bookmark },
+  { href: "/recreations/linear-mobile", label: "Linear Demo", icon: Smartphone },
 ];
 
 export const Header: React.FC = () => {
@@ -30,15 +31,15 @@ export const Header: React.FC = () => {
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
 
   return (
-    <header className="sticky top-0 z-50 w-full border-b border-brand-border bg-brand-bg/80 backdrop-blur-md">
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 h-16 flex items-center justify-between">
-        {/* Brand Logo */}
-        <div className="flex items-center gap-8">
+    <header className="sticky top-0 z-50 w-full border-b border-brand-border/80 bg-brand-bg/85 backdrop-blur-xl">
+      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 h-16 flex items-center justify-between gap-4">
+        {/* Brand Logo + Primary Nav */}
+        <div className="flex items-center gap-6 min-w-0">
           <Link
             href="/"
-            className="flex items-center gap-2.5 group focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-brand-coral rounded-lg px-1 py-0.5"
+            className="flex items-center gap-2.5 group focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-brand-coral rounded-lg px-1 py-0.5 shrink-0"
           >
-            <div className="w-8 h-8 rounded-xl bg-gradient-to-tr from-brand-violet via-brand-coral to-brand-cyan flex items-center justify-center shadow-md shadow-brand-violet/20 group-hover:scale-105 transition-transform">
+            <div className="w-8 h-8 rounded-xl bg-gradient-to-tr from-brand-violet via-brand-coral to-brand-cyan flex items-center justify-center shadow-md shadow-brand-violet/25 group-hover:scale-105 transition-transform">
               <Sparkles className="w-4 h-4 text-brand-bg fill-brand-bg" />
             </div>
             <div className="flex items-baseline">
@@ -51,8 +52,8 @@ export const Header: React.FC = () => {
             </div>
           </Link>
 
-          {/* Desktop Nav */}
-          <nav className="hidden md:flex items-center gap-1" aria-label="Main Navigation">
+          {/* Desktop Nav (lg+ prevents tablet cramping/wrapping) */}
+          <nav className="hidden lg:flex items-center gap-1" aria-label="Main Navigation">
             {navLinks.map((link) => {
               const Icon = link.icon;
               const isActive =
@@ -63,14 +64,18 @@ export const Header: React.FC = () => {
                 <Link
                   key={link.href}
                   href={link.href}
-                  className={`flex items-center gap-2 px-3.5 py-2 text-sm font-medium rounded-xl transition-colors ${
+                  className={`flex items-center gap-1.5 px-3 py-1.5 text-[13px] font-medium rounded-xl whitespace-nowrap transition-colors ${
                     isActive
-                      ? "text-brand-pearl bg-brand-elevated border border-brand-border"
-                      : "text-brand-muted hover:text-brand-pearl hover:bg-brand-surface"
+                      ? "text-brand-pearl bg-brand-elevated border border-brand-border shadow-sm"
+                      : "text-brand-muted hover:text-brand-pearl hover:bg-brand-surface/80"
                   }`}
                 >
-                  <Icon className={`w-4 h-4 ${isActive ? "text-brand-coral" : "text-brand-muted"}`} />
-                  {link.label}
+                  <Icon
+                    className={`w-3.5 h-3.5 shrink-0 ${
+                      isActive ? "text-brand-coral" : "text-brand-muted"
+                    }`}
+                  />
+                  <span>{link.label}</span>
                 </Link>
               );
             })}
@@ -78,42 +83,55 @@ export const Header: React.FC = () => {
         </div>
 
         {/* Action Controls */}
-        <div className="hidden sm:flex items-center gap-3">
+        <div className="hidden lg:flex items-center gap-2 shrink-0">
           <Link href="/submit">
-            <Button variant="outline" size="sm" className="gap-1.5">
+            <Button variant="outline" size="sm" className="gap-1.5 whitespace-nowrap">
               <PlusCircle className="w-3.5 h-3.5 text-brand-cyan" />
               <span>Submit</span>
             </Button>
           </Link>
           <Link href="/admin">
-            <Button variant="ghost" size="sm" className="gap-1.5 text-xs text-brand-muted">
+            <Button variant="ghost" size="sm" className="gap-1.5 text-xs text-brand-muted whitespace-nowrap">
               <Shield className="w-3.5 h-3.5" />
               <span>Admin</span>
             </Button>
           </Link>
           <Link href="/prompt-studio">
-            <Button variant="coral" size="sm" className="gap-1.5 shadow-sm">
+            <Button
+              variant="coral"
+              size="sm"
+              className={`gap-1.5 shadow-sm whitespace-nowrap ${
+                pathname?.startsWith("/prompt-studio") ? "ring-2 ring-white/40" : ""
+              }`}
+            >
               <Wand2 className="w-3.5 h-3.5" />
-              <span>AI Prompt Studio</span>
+              <span>Prompt Studio</span>
             </Button>
           </Link>
         </div>
 
-        {/* Mobile menu toggle */}
-        <div className="flex md:hidden">
+        {/* Tablet/Mobile Right Controls */}
+        <div className="flex lg:hidden items-center gap-2 shrink-0">
+          <Link href="/prompt-studio" className="hidden sm:inline-flex">
+            <Button variant="coral" size="sm" className="gap-1.5 text-xs">
+              <Wand2 className="w-3.5 h-3.5" />
+              <span>Prompt Studio</span>
+            </Button>
+          </Link>
           <button
             onClick={() => setMobileMenuOpen(!mobileMenuOpen)}
-            className="p-2 rounded-lg text-brand-muted hover:text-brand-pearl hover:bg-brand-surface"
-            aria-label="Toggle mobile menu"
+            className="p-2 rounded-xl text-brand-muted hover:text-brand-pearl hover:bg-brand-surface border border-transparent hover:border-brand-border transition-colors"
+            aria-label="Toggle navigation menu"
+            aria-expanded={mobileMenuOpen}
           >
-            {mobileMenuOpen ? <X className="w-6 h-6" /> : <Menu className="w-6 h-6" />}
+            {mobileMenuOpen ? <X className="w-5 h-5" /> : <Menu className="w-5 h-5" />}
           </button>
         </div>
       </div>
 
-      {/* Mobile Drawer */}
+      {/* Responsive Tablet/Mobile Drawer */}
       {mobileMenuOpen && (
-        <div className="md:hidden border-b border-brand-border bg-brand-surface/95 px-4 pt-2 pb-6 space-y-1">
+        <div className="lg:hidden border-b border-brand-border bg-brand-surface/95 backdrop-blur-xl px-4 pt-3 pb-5 space-y-1.5">
           {navLinks.map((link) => {
             const Icon = link.icon;
             const isActive =
@@ -123,10 +141,10 @@ export const Header: React.FC = () => {
                 key={link.href}
                 href={link.href}
                 onClick={() => setMobileMenuOpen(false)}
-                className={`flex items-center gap-3 px-3.5 py-2.5 text-sm font-medium rounded-xl ${
+                className={`flex items-center gap-3 px-3.5 py-2.5 text-sm font-medium rounded-xl transition-colors ${
                   isActive
-                    ? "text-brand-pearl bg-brand-elevated"
-                    : "text-brand-muted hover:text-brand-pearl"
+                    ? "text-brand-pearl bg-brand-elevated border border-brand-border"
+                    : "text-brand-muted hover:text-brand-pearl hover:bg-brand-elevated/50"
                 }`}
               >
                 <Icon className="w-4 h-4 text-brand-coral" />
@@ -134,15 +152,21 @@ export const Header: React.FC = () => {
               </Link>
             );
           })}
-          <div className="pt-3 border-t border-brand-border flex flex-col gap-2">
+          <div className="pt-3 mt-2 border-t border-brand-border grid grid-cols-1 sm:grid-cols-3 gap-2">
+            <Link href="/prompt-studio" onClick={() => setMobileMenuOpen(false)}>
+              <Button variant="coral" size="sm" className="w-full justify-center gap-2">
+                <Wand2 className="w-4 h-4" />
+                Prompt Studio
+              </Button>
+            </Link>
             <Link href="/submit" onClick={() => setMobileMenuOpen(false)}>
-              <Button variant="outline" size="sm" className="w-full justify-start gap-2">
+              <Button variant="outline" size="sm" className="w-full justify-center gap-2">
                 <PlusCircle className="w-4 h-4 text-brand-cyan" />
                 Submit Reference
               </Button>
             </Link>
             <Link href="/admin" onClick={() => setMobileMenuOpen(false)}>
-              <Button variant="ghost" size="sm" className="w-full justify-start gap-2">
+              <Button variant="ghost" size="sm" className="w-full justify-center gap-2">
                 <Shield className="w-4 h-4" />
                 Admin Studio
               </Button>

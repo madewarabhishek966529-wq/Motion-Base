@@ -1,0 +1,38 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 750" width="1200" height="750" fill="none">
+  <rect width="1200" height="750" fill="#0B0F1A"/>
+  <radialGradient id="revGlow" cx="50%" cy="20%" r="60%">
+    <stop offset="0%" stop-color="#0075EB" stop-opacity="0.25"/>
+    <stop offset="100%" stop-color="#0B0F1A" stop-opacity="0"/>
+  </radialGradient>
+  <rect width="1200" height="750" fill="url(#revGlow)"/>
+  <rect x="405" y="45" width="390" height="660" rx="44" fill="#10131C" stroke="#252B3B" stroke-width="6"/>
+  <rect x="548" y="63" width="104" height="24" rx="12" fill="#080A10"/>
+  <text x="440" y="130" fill="#8E96AB" font-family="Inter, sans-serif" font-size="12" font-weight="600">NET WORTH • USD</text>
+  <text x="440" y="174" fill="#FFFFFF" font-family="Inter, sans-serif" font-size="36" font-weight="800">$84,290.40</text>
+  <rect x="440" y="190" width="116" height="24" rx="12" fill="#10B981" fill-opacity="0.16"/>
+  <text x="498" y="206" fill="#34D399" font-family="monospace" font-size="11" font-weight="700" text-anchor="middle">+$3,412 (+4.2%)</text>
+  <!-- Area Chart -->
+  <path d="M435 330 Q495 310 535 280 T630 295 T710 245 T765 230 L765 365 L435 365 Z" fill="#0075EB" fill-opacity="0.25"/>
+  <path d="M435 330 Q495 310 535 280 T630 295 T710 245 T765 230" stroke="#0075EB" stroke-width="3" stroke-linecap="round"/>
+  <circle cx="710" cy="245" r="6" fill="#FFFFFF" stroke="#0075EB" stroke-width="3"/>
+  <!-- Timeframe Pills -->
+  <rect x="440" y="382" width="48" height="26" rx="8" fill="#1B2030"/>
+  <text x="464" y="399" fill="#8E96AB" font-family="monospace" font-size="11" text-anchor="middle">1D</text>
+  <rect x="498" y="382" width="48" height="26" rx="8" fill="#0075EB"/>
+  <text x="522" y="399" fill="#FFFFFF" font-family="monospace" font-size="11" font-weight="700" text-anchor="middle">1W</text>
+  <rect x="556" y="382" width="48" height="26" rx="8" fill="#1B2030"/>
+  <text x="580" y="399" fill="#8E96AB" font-family="monospace" font-size="11" text-anchor="middle">1M</text>
+  <rect x="614" y="382" width="48" height="26" rx="8" fill="#1B2030"/>
+  <text x="638" y="399" fill="#8E96AB" font-family="monospace" font-size="11" text-anchor="middle">1Y</text>
+  <!-- Action Buttons -->
+  <rect x="440" y="432" width="156" height="44" rx="22" fill="#0075EB"/>
+  <text x="518" y="458" fill="#FFFFFF" font-family="Inter, sans-serif" font-size="13" font-weight="700" text-anchor="middle">+ Add Money</text>
+  <rect x="608" y="432" width="156" height="44" rx="22" fill="#1B2030" stroke="#2D354C"/>
+  <text x="686" y="458" fill="#FFFFFF" font-family="Inter, sans-serif" font-size="13" font-weight="600" text-anchor="middle">⇄ Exchange</text>
+  <!-- Vault rows -->
+  <rect x="440" y="502" width="324" height="62" rx="16" fill="#171B28" stroke="#252B3B"/>
+  <circle cx="472" cy="533" r="16" fill="#0075EB" fill-opacity="0.25"/>
+  <text x="500" y="529" fill="#FFFFFF" font-family="Inter, sans-serif" font-size="13" font-weight="600">High-Yield USD Vault</text>
+  <text x="500" y="546" fill="#34D399" font-family="monospace" font-size="10">4.75% APY</text>
+  <text x="746" y="537" fill="#FFFFFF" font-family="monospace" font-size="13" font-weight="700" text-anchor="end">$42,500</text>
+</svg>
