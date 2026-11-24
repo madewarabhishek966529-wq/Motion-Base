@@ -1,6 +1,6 @@
 "use client";
 
-import React, { useState, useEffect } from "react";
+import React, { useState, useEffect, Suspense } from "react";
 import { useSearchParams } from "next/navigation";
 import { storage } from "@/lib/storage";
 import {
@@ -34,7 +34,7 @@ import {
 } from "lucide-react";
 import { cn } from "@/lib/utils";
 
-export default function PromptStudioPage() {
+function PromptStudioContent() {
   const searchParams = useSearchParams();
   const initialRefId = searchParams.get("referenceId");
 
@@ -428,5 +428,19 @@ export default function PromptStudioPage() {
         </div>
       </div>
     </div>
+  );
+}
+
+export default function PromptStudioPage() {
+  return (
+    <Suspense
+      fallback={
+        <div className="py-20 text-center text-xs text-brand-muted animate-pulse">
+          Loading AI Prompt Studio...
+        </div>
+      }
+    >
+      <PromptStudioContent />
+    </Suspense>
   );
 }
