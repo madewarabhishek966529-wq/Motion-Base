@@ -14,16 +14,16 @@ import {
   Menu,
   X,
   Shield,
-  Smartphone,
+  Video,
 } from "lucide-react";
 import { Button } from "@/components/ui/button";
 
 const navLinks = [
   { href: "/", label: "Discover", icon: Compass },
+  { href: "/demos", label: "Video Demos", icon: Video },
   { href: "/motion-lab", label: "Motion Lab", icon: PlayCircle },
   { href: "/components-lab", label: "Components", icon: Layers },
   { href: "/collections", label: "Collections", icon: Bookmark },
-  { href: "/recreations/linear-mobile", label: "Linear Demo", icon: Smartphone },
 ];
 
 export const Header: React.FC = () => {
