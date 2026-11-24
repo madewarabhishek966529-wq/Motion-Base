@@ -1,7 +1,7 @@
 import { SEED_REFERENCES } from "@/data/references";
 import { ReferenceItem, CollectionItem } from "@/types";
 
-const REFERENCES_STORAGE_KEY = "motionbase_custom_references_v1";
+const REFERENCES_STORAGE_KEY = "motionbase_custom_references_v2";
 const BOOKMARKS_STORAGE_KEY = "motionbase_bookmarks_v1";
 const COLLECTIONS_STORAGE_KEY = "motionbase_collections_v1";
 const LIKES_STORAGE_KEY = "motionbase_likes_v1";

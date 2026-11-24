@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 750" width="1200" height="750" fill="none">
+  <defs>
+    <radialGradient id="opalBg" cx="50%" cy="38%" r="55%">
+      <stop offset="0%" stop-color="#39D8E8" stop-opacity="0.28"/>
+      <stop offset="50%" stop-color="#7867FF" stop-opacity="0.14"/>
+      <stop offset="100%" stop-color="#070B14" stop-opacity="1"/>
+    </radialGradient>
+    <linearGradient id="opalGem" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#60F7FF"/>
+      <stop offset="55%" stop-color="#7867FF"/>
+      <stop offset="100%" stop-color="#FF6B72"/>
+    </linearGradient>
+  </defs>
+  <rect width="1200" height="750" fill="url(#opalBg)"/>
+  <rect x="405" y="45" width="390" height="660" rx="44" fill="#090D18" stroke="#222B45" stroke-width="6"/>
+  <rect x="548" y="63" width="104" height="24" rx="12" fill="#04070D"/>
+  <text x="600" y="128" fill="#39D8E8" font-family="monospace" font-size="11" font-weight="700" text-anchor="middle">DEEP FOCUS SESSION</text>
+  <text x="600" y="156" fill="#F4F1FF" font-family="Inter, sans-serif" font-size="22" font-weight="700" text-anchor="middle">Flow State Active</text>
+  <!-- Glowing Crystal Orb -->
+  <circle cx="600" cy="295" r="106" fill="url(#opalGem)" fill-opacity="0.16" stroke="#39D8E8" stroke-opacity="0.45" stroke-width="2"/>
+  <circle cx="600" cy="295" r="76" fill="url(#opalGem)" fill-opacity="0.32" stroke="#FFFFFF" stroke-opacity="0.3"/>
+  <polygon points="600,238 648,295 600,352 552,295" fill="url(#opalGem)" fill-opacity="0.85" stroke="#FFFFFF" stroke-opacity="0.6" stroke-width="1.5"/>
+  <!-- Timer -->
+  <text x="600" y="446" fill="#FFFFFF" font-family="monospace" font-size="38" font-weight="800" text-anchor="middle">42:18</text>
+  <text x="600" y="472" fill="#AEB8CC" font-family="Inter, sans-serif" font-size="12" text-anchor="middle">14 distracting apps shielded</text>
+  <!-- App Shield Row -->
+  <rect x="440" y="498" width="320" height="66" rx="16" fill="#131B2E" stroke="#243152"/>
+  <circle cx="476" cy="531" r="16" fill="#FF6B72" fill-opacity="0.2" stroke="#FF6B72"/>
+  <circle cx="520" cy="531" r="16" fill="#7867FF" fill-opacity="0.2" stroke="#7867FF"/>
+  <circle cx="564" cy="531" r="16" fill="#39D8E8" fill-opacity="0.2" stroke="#39D8E8"/>
+  <text x="600" y="535" fill="#F4F1FF" font-family="Inter, sans-serif" font-size="12" font-weight="600">Focus Score: 96%</text>
+  <!-- Bottom Button -->
+  <rect x="440" y="592" width="320" height="48" rx="24" fill="#18223A" stroke="#39D8E8" stroke-opacity="0.5"/>
+  <text x="600" y="621" fill="#39D8E8" font-family="Inter, sans-serif" font-size="13" font-weight="700" text-anchor="middle">Snooze 5 min</text>
+</svg>

@@ -1,3 +1,4 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
 <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 750" width="1200" height="750" fill="none">
   <rect width="1200" height="750" fill="#0B0D14"/>
   <rect x="405" y="45" width="390" height="660" rx="44" fill="#08090C" stroke="#242632" stroke-width="6"/>
@@ -17,7 +18,7 @@
   <path d="M455 220 L503 234 L551 255 L599 282 L647 302 L695 322 L745 338" stroke="#5E6AD2" stroke-width="3" stroke-linecap="round"/>
   <circle cx="745" cy="338" r="6" fill="#FFFFFF" stroke="#5E6AD2" stroke-width="3"/>
   <rect x="455" y="358" width="290" height="24" rx="6" fill="#08090C" stroke="#242632"/>
-  <text x="468" y="374" fill="#8793FA" font-family="monospace" font-size="10">16 pts remaining • +32 completed</text>
+  <text x="468" y="374" fill="#8793FA" font-family="monospace" font-size="10">16 pts remaining â€¢ +32 completed</text>
   <!-- Scope Bar -->
   <rect x="435" y="414" width="330" height="122" rx="14" fill="#14151B" stroke="#242632"/>
   <text x="455" y="440" fill="#EEEEF0" font-family="Inter, sans-serif" font-size="12" font-weight="600">Scope Completion: 67%</text>

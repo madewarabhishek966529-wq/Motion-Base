@@ -1,3 +1,4 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
 <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 750" width="1200" height="750" fill="none">
   <rect width="1200" height="750" fill="#13131E"/>
   <radialGradient id="amieGlow" cx="65%" cy="25%" r="55%">
@@ -9,13 +10,13 @@
   <rect x="140" y="70" width="920" height="610" rx="22" fill="#181826" stroke="#2D2D44" stroke-width="2"/>
   <!-- Left Sidebar -->
   <rect x="140" y="70" width="220" height="610" rx="22" fill="#1E1E30" stroke="#2D2D44"/>
-  <text x="168" y="114" fill="#FFFFFF" font-family="Inter, sans-serif" font-size="16" font-weight="800">Amie • Today</text>
+  <text x="168" y="114" fill="#FFFFFF" font-family="Inter, sans-serif" font-size="16" font-weight="800">Amie â€¢ Today</text>
   <rect x="164" y="140" width="172" height="36" rx="10" fill="#7867FF" fill-opacity="0.2" stroke="#7867FF" stroke-opacity="0.5"/>
-  <text x="180" y="162" fill="#FFFFFF" font-family="Inter, sans-serif" font-size="12" font-weight="600">✓ Finish Motion Spec</text>
+  <text x="180" y="162" fill="#FFFFFF" font-family="Inter, sans-serif" font-size="12" font-weight="600">âœ“ Finish Motion Spec</text>
   <rect x="164" y="186" width="172" height="36" rx="10" fill="#25253A"/>
-  <text x="180" y="208" fill="#AEB8CC" font-family="Inter, sans-serif" font-size="12">○ Ship Prompt Studio</text>
+  <text x="180" y="208" fill="#AEB8CC" font-family="Inter, sans-serif" font-size="12">â—‹ Ship Prompt Studio</text>
   <rect x="164" y="232" width="172" height="36" rx="10" fill="#25253A"/>
-  <text x="180" y="254" fill="#AEB8CC" font-family="Inter, sans-serif" font-size="12">○ Design Review Sync</text>
+  <text x="180" y="254" fill="#AEB8CC" font-family="Inter, sans-serif" font-size="12">â—‹ Design Review Sync</text>
   <!-- Calendar Grid -->
   <text x="394" y="114" fill="#FFFFFF" font-family="Inter, sans-serif" font-size="16" font-weight="700">November 2026</text>
   <rect x="926" y="96" width="106" height="30" rx="9" fill="#7867FF"/>

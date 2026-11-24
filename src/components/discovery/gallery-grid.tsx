@@ -1,12 +1,64 @@
 "use client";
 
 import React, { useState, useEffect } from "react";
-import { ReferenceItem } from "@/types";
+import { ReferenceItem, ReferenceStyle } from "@/types";
 import { FilterOptions, getReferences } from "@/lib/api";
 import { ReferenceCard } from "@/components/discovery/reference-card";
 import { FilterBar } from "@/components/discovery/filter-bar";
-import { Sparkles, Compass, AlertCircle } from "lucide-react";
+import { AlertCircle, Sparkles, Layers, Palette, Smartphone, Monitor, Globe } from "lucide-react";
 import { Button } from "@/components/ui/button";
+import { cn } from "@/lib/utils";
+
+const DESIGN_STYLE_SPOTLIGHTS: Array<{
+  style: ReferenceStyle | "all";
+  title: string;
+  subtitle: string;
+  accent: string;
+  swatch: string;
+}> = [
+  {
+    style: "all",
+    title: "All Designs",
+    subtitle: "12 curated apps",
+    accent: "border-brand-coral/50",
+    swatch: "from-brand-coral via-brand-violet to-brand-cyan",
+  },
+  {
+    style: "dark",
+    title: "Dark OLED & Pro",
+    subtitle: "Linear, Raycast, Runway",
+    accent: "border-[#5E6AD2]/60",
+    swatch: "from-[#14151B] via-[#5E6AD2] to-[#08090C]",
+  },
+  {
+    style: "glass",
+    title: "Glass & Mesh Glow",
+    subtitle: "Arc, Opal, Revolut",
+    accent: "border-brand-cyan/60",
+    swatch: "from-[#FF6B72] via-[#7867FF] to-[#39D8E8]",
+  },
+  {
+    style: "editorial",
+    title: "Editorial & Light",
+    subtitle: "Airbnb, Amie Calendar",
+    accent: "border-[#FF385C]/60",
+    swatch: "from-[#FFFFFF] via-[#FFE4E8] to-[#FF385C]",
+  },
+  {
+    style: "playful",
+    title: "Playful & Gamified",
+    subtitle: "Duolingo, Amie",
+    accent: "border-[#58CC02]/60",
+    swatch: "from-[#58CC02] via-[#1CB0F6] to-[#FF9600]",
+  },
+  {
+    style: "neon",
+    title: "Neon & Media",
+    subtitle: "Spotify DJ, Supabase",
+    accent: "border-[#1DB954]/60",
+    swatch: "from-[#1DB954] via-[#3ECF8E] to-[#121212]",
+  },
+];
 
 export const GalleryGrid: React.FC = () => {
   const [filters, setFilters] = useState<FilterOptions>({
@@ -35,7 +87,59 @@ export const GalleryGrid: React.FC = () => {
   }, [filters]);
 
   return (
-    <div className="w-full">
+    <div className="w-full space-y-6">
+      {/* Diverse Design Styles Quick Switcher */}
+      <div className="space-y-3">
+        <div className="flex items-center justify-between">
+          <h2 className="text-xs font-bold uppercase tracking-wider text-brand-muted flex items-center gap-1.5">
+            <Palette className="w-3.5 h-3.5 text-brand-coral" />
+            Explore Various Design Aesthetics
+          </h2>
+          <span className="text-[11px] font-mono text-brand-muted/70">
+            Click a style to filter
+          </span>
+        </div>
+
+        <div className="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-6 gap-2.5">
+          {DESIGN_STYLE_SPOTLIGHTS.map((item) => {
+            const isSelected = (filters.style || "all") === item.style;
+            return (
+              <button
+                key={item.style}
+                type="button"
+                onClick={() =>
+                  setFilters((prev) => ({
+                    ...prev,
+                    style: item.style,
+                  }))
+                }
+                className={cn(
+                  "group p-3 rounded-2xl border text-left transition-all bg-brand-surface/80 hover:bg-brand-elevated/80 flex flex-col justify-between gap-2",
+                  isSelected
+                    ? `${item.accent} ring-1 ring-brand-coral/40 bg-brand-elevated shadow-md`
+                    : "border-brand-border"
+                )}
+              >
+                <div
+                  className={cn(
+                    "h-2 w-full rounded-full bg-gradient-to-r",
+                    item.swatch
+                  )}
+                />
+                <div>
+                  <div className="text-xs font-semibold text-brand-pearl group-hover:text-white truncate">
+                    {item.title}
+                  </div>
+                  <div className="text-[10px] text-brand-muted truncate">
+                    {item.subtitle}
+                  </div>
+                </div>
+              </button>
+            );
+          })}
+        </div>
+      </div>
+
       <FilterBar
         filters={filters}
         onChange={(newFilters) => setFilters(newFilters)}

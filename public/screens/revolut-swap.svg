@@ -1,3 +1,4 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
 <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 750" width="1200" height="750" fill="none">
   <rect width="1200" height="750" fill="#0B0F1A"/>
   <rect x="405" y="45" width="390" height="660" rx="44" fill="#10131C" stroke="#252B3B" stroke-width="6"/>
@@ -8,11 +9,11 @@
   <text x="462" y="210" fill="#8E96AB" font-family="Inter, sans-serif" font-size="11">Balance: $14,200</text>
   <text x="742" y="212" fill="#FFFFFF" font-family="monospace" font-size="24" font-weight="700" text-anchor="end">-$1,000</text>
   <circle cx="602" cy="272" r="20" fill="#0075EB" stroke="#10131C" stroke-width="4"/>
-  <text x="602" y="278" fill="#FFFFFF" font-family="Inter, sans-serif" font-size="14" font-weight="700" text-anchor="middle">⇅</text>
+  <text x="602" y="278" fill="#FFFFFF" font-family="Inter, sans-serif" font-size="14" font-weight="700" text-anchor="middle">â‡…</text>
   <rect x="440" y="280" width="324" height="106" rx="18" fill="#171B28" stroke="#0075EB" stroke-opacity="0.5"/>
   <text x="462" y="314" fill="#FFFFFF" font-family="Inter, sans-serif" font-size="16" font-weight="700">EUR</text>
   <text x="462" y="334" fill="#8E96AB" font-family="Inter, sans-serif" font-size="11">Live interbank rate</text>
-  <text x="742" y="336" fill="#34D399" font-family="monospace" font-size="24" font-weight="700" text-anchor="end">+€942.50</text>
+  <text x="742" y="336" fill="#34D399" font-family="monospace" font-size="24" font-weight="700" text-anchor="end">+â‚¬942.50</text>
   <rect x="440" y="420" width="324" height="48" rx="24" fill="#0075EB"/>
-  <text x="602" y="449" fill="#FFFFFF" font-family="Inter, sans-serif" font-size="14" font-weight="700" text-anchor="middle">Review Order • Zero Fee</text>
+  <text x="602" y="449" fill="#FFFFFF" font-family="Inter, sans-serif" font-size="14" font-weight="700" text-anchor="middle">Review Order â€¢ Zero Fee</text>
 </svg>

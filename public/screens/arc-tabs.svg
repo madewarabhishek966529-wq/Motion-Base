@@ -1,3 +1,4 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
 <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 750" width="1200" height="750" fill="none">
   <rect width="1200" height="750" fill="#121422"/>
   <rect x="405" y="45" width="390" height="660" rx="44" fill="#181B2C" stroke="#7867FF" stroke-opacity="0.4" stroke-width="5"/>
@@ -5,7 +6,7 @@
   <text x="440" y="130" fill="#FFFFFF" font-family="Inter, sans-serif" font-size="18" font-weight="700">Pinned Bento Grid</text>
   <rect x="440" y="156" width="154" height="140" rx="18" fill="#232840" stroke="#39D8E8" stroke-opacity="0.35"/>
   <text x="460" y="255" fill="#FFFFFF" font-family="Inter, sans-serif" font-size="13" font-weight="600">Vercel Deploy</text>
-  <text x="460" y="274" fill="#39D8E8" font-family="monospace" font-size="10">Ready • 12s</text>
+  <text x="460" y="274" fill="#39D8E8" font-family="monospace" font-size="10">Ready â€¢ 12s</text>
   <rect x="610" y="156" width="154" height="140" rx="18" fill="#232840" stroke="#FF6B72" stroke-opacity="0.35"/>
   <text x="630" y="255" fill="#FFFFFF" font-family="Inter, sans-serif" font-size="13" font-weight="600">Linear Cycle</text>
   <text x="630" y="274" fill="#FF6B72" font-family="monospace" font-size="10">67% Complete</text>

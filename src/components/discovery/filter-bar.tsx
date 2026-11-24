@@ -27,19 +27,24 @@ const categories: Array<{ id: ReferenceCategory | "all"; label: string }> = [
   { id: "productivity", label: "Productivity" },
   { id: "developer_tools", label: "Developer Tools" },
   { id: "fintech", label: "Fintech" },
-  { id: "health", label: "Health" },
+  { id: "commerce", label: "Commerce" },
   { id: "ai", label: "AI & Creative" },
-  { id: "social", label: "Social" },
+  { id: "health", label: "Health" },
+  { id: "travel", label: "Travel" },
+  { id: "entertainment", label: "Entertainment" },
+  { id: "education", label: "Education" },
 ];
 
 const styles: Array<{ id: ReferenceStyle | "all"; label: string }> = [
   { id: "all", label: "All Styles" },
   { id: "minimal", label: "Minimal" },
   { id: "dark", label: "Dark" },
+  { id: "editorial", label: "Editorial" },
   { id: "glass", label: "Glassmorphism" },
   { id: "gradient", label: "Gradient" },
   { id: "playful", label: "Playful" },
   { id: "neon", label: "Neon" },
+  { id: "brutalist", label: "Brutalist" },
 ];
 
 const colorPalette = [
@@ -48,7 +53,10 @@ const colorPalette = [
   { hex: "#7867FF", label: "Violet" },
   { hex: "#39D8E8", label: "Cyan" },
   { hex: "#3ECF8E", label: "Emerald" },
-  { hex: "#FF6363", label: "Crimson" },
+  { hex: "#1DB954", label: "Spotify Green" },
+  { hex: "#FF385C", label: "Rose" },
+  { hex: "#635BFF", label: "Blurple" },
+  { hex: "#58CC02", label: "Lime" },
 ];
 
 export const FilterBar: React.FC<FilterBarProps> = ({
